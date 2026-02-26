@@ -1,0 +1,192 @@
+.export-print-container {
+  position: relative;
+}
+
+.export-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.action-btn.print {
+  color: #4a90e2;
+  border-color: #4a90e2;
+}
+
+.action-btn.print:hover {
+  background: #4a90e2;
+  color: white;
+}
+
+.action-btn.download {
+  color: #10B981;
+  border-color: #10B981;
+}
+
+.action-btn.download:hover {
+  background: #10B981;
+  color: white;
+}
+
+.action-btn.share {
+  color: #f59e0b;
+  border-color: #f59e0b;
+}
+
+.action-btn.share:hover {
+  background: #f59e0b;
+  color: white;
+}
+
+/* Printable Report Styles */
+.printable-report {
+  display: none;
+}
+
+@media print {
+  /* Hide everything on print except the report */
+  body * {
+    visibility: hidden;
+  }
+
+  .printable-report,
+  .printable-report * {
+    visibility: visible;
+  }
+
+  .printable-report {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    background: white;
+  }
+
+  .report-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #333;
+  }
+
+  .report-header h1 {
+    font-size: 28px;
+    margin: 0 0 10px 0;
+    color: #1a1a1a;
+  }
+
+  .report-header p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+  }
+
+  .report-summary {
+    margin-bottom: 30px;
+  }
+
+  .report-summary h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+  }
+
+  .report-summary table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .report-summary table td {
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .report-holdings {
+    margin-bottom: 30px;
+  }
+
+  .report-holdings h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+  }
+
+  .holdings-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .holdings-table th,
+  .holdings-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #e0e0e0;
+  }
+
+  .holdings-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+  }
+
+  .positive {
+    color: #10B981;
+  }
+
+  .negative {
+    color: #f5576c;
+  }
+
+  .report-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #e0e0e0;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+  }
+
+  .report-footer p {
+    margin: 5px 0;
+  }
+
+  /* Remove any shadows, transitions, etc. for print */
+  * {
+    box-shadow: none !important;
+    transition: none !important;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .export-actions {
+    width: 100%;
+  }
+
+  .action-btn {
+    flex: 1;
+    justify-content: center;
+    min-width: 100px;
+  }
+}
